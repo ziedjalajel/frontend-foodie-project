@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { Route, Switch } from "react-router";
+import NavBar from "./components/NavBar";
+import CategoryDetail from "./components/categories/CategoryDetail";
+import IngredientForm from "./components/IngredientForm";
+import CategoryList from "./components/categories/CategoryList";
+import IngredientDetail from "./components/ingredients/IngredientDetail";
+import IngredientList from "./components/ingredients/IngredientList";
+import Home from "./components/Home";
 function App() {
+  //dont forget to use selector
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar />
+      <Switch>
+        <Route exact path={["/categories/:categorySlug/ingredients/new"]}>
+          <IngredientForm />
+        </Route>
+        <Route exact path="/categories/:categorySlug">
+          <CategoryDetail />
+        </Route>
+        <Route exact path="/categories">
+          <CategoryList />
+        </Route>
+        <Route exact path="/ingredients/:ingredientSlug">
+          <IngredientDetail />
+        </Route>
+        <Route exact path="/ingredients">
+          <IngredientList />
+          {/* ingredients={ingredients} */}
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 }
