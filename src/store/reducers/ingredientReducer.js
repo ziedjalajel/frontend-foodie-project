@@ -12,6 +12,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_INGREDIENT:
       const { newIngredient } = action.payload;
+
       return {
         ...state,
         ingredients: [...state.ingredients, newIngredient],

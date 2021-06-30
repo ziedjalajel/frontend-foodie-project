@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { addIngredient } from "../store/actions/ingredientActions";
 import { useState } from "react";
+import { fetchCtegory } from "../store/actions/categoryActions";
 
 const IngredientForm = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,10 @@ const IngredientForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addIngredient(ingredient, categorySlug));
+    dispatch(addIngredient(ingredient, categorySlug)).then((a) =>
+      dispatch(fetchCtegory())
+    );
+    dispatch(fetchCtegory());
     history.push("/ingredients");
   };
   return (

@@ -13,6 +13,7 @@ export const addIngredient = (newIngredient, categoryId) => {
         `http://localhost:8000/categories/${categoryId}/ingredients`,
         formData
       );
+
       dispatch({
         type: ADD_INGREDIENT,
         payload: { newIngredient: res.data },
