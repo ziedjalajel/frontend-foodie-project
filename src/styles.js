@@ -1,24 +1,34 @@
 import { Link, NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
+export const GlobalStyle = createGlobalStyle`
+  body {
+    
+    background-color: #eee2e2
+  }
+`;
 export const NavItem = styled(NavLink)`
-  color: black;
-  padding: 0.25em 1em;
+  color: red;
+  padding: 0.1em 0.5em;
 
   &.active {
-    color: aqua;
+    color: #476ecc;
   }
   div {
     justify-content: space-between;
   }
 `;
+
 export const Logo = styled(Link)`
   img {
-    width: 7rem;
+    width: 4rem;
+    border-radius: 50%;
   }
 `;
 export const NavStyle = styled.div`
   justify-content: space-between;
+  background: repeating-linear-gradient(70deg, gray, transparent 90px);
+  height: 60px;
 `;
 export const Center = styled.h1`
   text-align: center;
@@ -33,8 +43,9 @@ export const DetailWrapper = styled.div`
   width: 80%;
 
   img {
-    width: 40%;
+    width: 20%;
     float: left;
+    border-radius: 15px;
   }
 
   p {
@@ -55,6 +66,7 @@ export const IngredientWrapper = styled.div`
   img {
     width: 12em;
     height: 12em;
+    border-radius: 20px;
   }
 
   p {
@@ -75,7 +87,9 @@ export const ShopImage = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 40%;
+  height: 40%;
+  border-radius: 5%;
 `;
 
 export const ListWrapperCategory = styled.div`
@@ -85,6 +99,6 @@ export const ListWrapperCategory = styled.div`
   img {
     width: 12em;
     height: 12em;
-    justify-content: space-around;
+    border-radius: 20px;
   }
 `;

@@ -24,7 +24,9 @@ const CategoryDetail = () => {
           <h3>{category.name}</h3>
           <img src={category.image} alt={category.name} />
           <Link to={`/categories/${category.id}/ingredients/new`}>
-            <button>Add Ingredient</button>
+            <button type="button" class="btn btn-outline-secondary">
+              Add Ingredient
+            </button>
           </Link>
         </DetailWrapper>
       </div>

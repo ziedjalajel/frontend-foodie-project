@@ -5,7 +5,7 @@ const IngredientItem = ({ ingredient }) => {
   return (
     <IngredientWrapper className="col-lg-4 col-md-6 col-sm-6">
       <Link to={`/ingredients/${ingredient.slug}`}>
-        <img alt={ingredient.name} src={ingredient.image} />
+        <img class="img-rounded" alt={ingredient.name} src={ingredient.image} />
       </Link>
       <p className="ingredient-name">{ingredient.name}</p>
     </IngredientWrapper>

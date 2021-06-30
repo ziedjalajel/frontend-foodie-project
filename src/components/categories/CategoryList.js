@@ -16,7 +16,7 @@ const CategoryList = () => {
   return (
     <div className="container">
       <SearchBar setQuery={setQuery} />
-      <ListWrapperCategory>{categoryList}</ListWrapperCategory>
+      <ListWrapperCategory className="row">{categoryList}</ListWrapperCategory>
     </div>
   );
 };

@@ -8,12 +8,14 @@ import IngredientDetail from "./components/ingredients/IngredientDetail";
 import IngredientList from "./components/ingredients/IngredientList";
 import Home from "./components/Home";
 import { useSelector } from "react-redux";
+import { GlobalStyle } from "./styles";
 
 function App() {
   //ToDO:dont forget to use selector
   const ingredients = useSelector((state) => state.ingredients.ingredients);
   return (
     <div>
+      <GlobalStyle />
       <NavBar />
       <Switch>
         <Route exact path="/categories/:categorySlug/ingredients/new">
