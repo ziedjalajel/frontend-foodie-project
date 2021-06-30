@@ -6,11 +6,33 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 
+// Redux stuff
+import { createStore } from "redux";
+import { applyMiddleware, compose } from "redux"; //we add this
+import thunk from "redux-thunk"; //we add this
+import { Provider } from "react-redux";
+
+import rootReducer from "./store/reducers/rootReducer";
+import { fetchIngredients } from "./store/actions/ingredientActions";
+import { fetchCtegory } from "./store/actions/categoryActions";
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  rootReducer, // reducer function
+  composeEnhancers(applyMiddleware(thunk))
+);
+
+store.dispatch(fetchIngredients());
+store.dispatch(fetchCtegory());
+
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

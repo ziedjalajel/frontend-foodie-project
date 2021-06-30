@@ -7,13 +7,16 @@ import CategoryList from "./components/categories/CategoryList";
 import IngredientDetail from "./components/ingredients/IngredientDetail";
 import IngredientList from "./components/ingredients/IngredientList";
 import Home from "./components/Home";
+import { useSelector } from "react-redux";
+
 function App() {
-  //dont forget to use selector
+  //ToDO:dont forget to use selector
+  const ingredients = useSelector((state) => state.ingredients.ingredients);
   return (
     <div>
       <NavBar />
       <Switch>
-        <Route exact path={["/categories/:categorySlug/ingredients/new"]}>
+        <Route exact path="/categories/:categorySlug/ingredients/new">
           <IngredientForm />
         </Route>
         <Route exact path="/categories/:categorySlug">
@@ -26,8 +29,7 @@ function App() {
           <IngredientDetail />
         </Route>
         <Route exact path="/ingredients">
-          <IngredientList />
-          {/* ingredients={ingredients} */}
+          <IngredientList ingredients={ingredients} />
         </Route>
         <Route exact path="/">
           <Home />
