@@ -2,7 +2,8 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import CategoryItem from "../categories/CategoryItem";
 import SearchBar from "../SearchBar";
-import { ListWrapperCategory } from "../../styles";
+import { ListWrapperCategory, Center } from "../../styles";
+import { Link } from "react-router-dom";
 
 const CategoryList = () => {
   const categories = useSelector((state) => state.categories.categories);
@@ -15,8 +16,23 @@ const CategoryList = () => {
 
   return (
     <div className="container">
-      <SearchBar setQuery={setQuery} />
-      <ListWrapperCategory className="row">{categoryList}</ListWrapperCategory>
+      <div>
+        <SearchBar setQuery={setQuery} />
+        <ListWrapperCategory className="row">
+          {categoryList}
+        </ListWrapperCategory>
+      </div>
+      <Center>
+        <Link to={"/categories/new"}>
+          <button
+            style={{ marginTop: "150px" }}
+            type="button"
+            class="btn btn-light"
+          >
+            Add Category
+          </button>
+        </Link>
+      </Center>
     </div>
   );
 };

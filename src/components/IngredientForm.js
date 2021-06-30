@@ -61,7 +61,7 @@ const IngredientForm = () => {
           className="form-control"
         />
       </div>
-      <button type="button" class="btn btn-outline-success">
+      <button type="submit" class="btn btn-outline-success">
         Create
       </button>
     </form>

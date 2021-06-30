@@ -9,6 +9,7 @@ import IngredientList from "./components/ingredients/IngredientList";
 import Home from "./components/Home";
 import { useSelector } from "react-redux";
 import { GlobalStyle } from "./styles";
+import CategoryForm from "./components/CategoryForm";
 
 function App() {
   //ToDO:dont forget to use selector
@@ -20,6 +21,9 @@ function App() {
       <Switch>
         <Route exact path="/categories/:categorySlug/ingredients/new">
           <IngredientForm />
+        </Route>
+        <Route exact path="/categories/new">
+          <CategoryForm />
         </Route>
         <Route exact path="/categories/:categorySlug">
           <CategoryDetail />
