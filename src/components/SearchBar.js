@@ -3,7 +3,7 @@ import { SearchBarStyled } from "../styles";
 const SearchBar = ({ setQuery }) => {
   return (
     <SearchBarStyled
-      placeholder="Search For a Category"
+      placeholder="Search "
       onChange={(event) => setQuery(event.target.value)}
     />
   );

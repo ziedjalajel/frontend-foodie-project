@@ -16,7 +16,7 @@ import RecipeDetail from "./components/recipes/RecipeDetail";
 function App() {
   //ToDO:dont forget to use selector
   const ingredients = useSelector((state) => state.ingredients.ingredients);
-
+  const recipes = useSelector((state) => state.recipes.recipes);
   return (
     <div>
       <GlobalStyle />
@@ -44,7 +44,7 @@ function App() {
           <RecipeDetail />
         </Route>
         <Route exact path="/recipes">
-          <RecipeList />
+          <RecipeList recipes={recipes} />
         </Route>
         <Route exact path="/">
           <Home />

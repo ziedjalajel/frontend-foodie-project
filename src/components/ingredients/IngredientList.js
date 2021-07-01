@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ListWrapper } from "../../styles";
 import SearchBar from "../SearchBar";
 import { useState } from "react";

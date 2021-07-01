@@ -1,12 +1,10 @@
-import { useSelector } from "react-redux";
 import { useState } from "react";
 import RecipeItem from "./RecipeItem";
 import SearchBar from "../SearchBar";
 import { Link } from "react-router-dom";
 import { ListWrapperCategory, Center } from "../../styles";
 
-const RecipeList = () => {
-  const recipes = useSelector((state) => state.recipes.recipes);
+const RecipeList = ({ recipes }) => {
   const [query, setQuery] = useState("");
   const recipeList = recipes
     .filter((recipe) => recipe.name.toLowerCase().includes(query.toLowerCase()))

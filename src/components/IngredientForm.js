@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { addIngredient } from "../store/actions/ingredientActions";
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { fetchCtegory } from "../store/actions/categoryActions";
 const IngredientForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { ingredientSlug } = useParams();
+
   const { categorySlug } = useParams();
 
   const [ingredient, setIngredient] = useState({
