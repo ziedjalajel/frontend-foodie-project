@@ -15,6 +15,9 @@ const NavBar = () => {
         <NavItem className="nav-item" to="/ingredients">
           Ingredients
         </NavItem>
+        <NavItem className="nav-item" to="/recipes">
+          Recipes
+        </NavItem>
       </div>
     </NavStyle>
   );

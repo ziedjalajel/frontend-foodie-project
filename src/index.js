@@ -15,6 +15,7 @@ import { Provider } from "react-redux";
 import rootReducer from "./store/reducers/rootReducer";
 import { fetchIngredients } from "./store/actions/ingredientActions";
 import { fetchCtegory } from "./store/actions/categoryActions";
+import { fetchRecipes } from "./store/actions/recipeActions";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -25,6 +26,7 @@ const store = createStore(
 
 store.dispatch(fetchIngredients());
 store.dispatch(fetchCtegory());
+store.dispatch(fetchRecipes());
 
 ReactDOM.render(
   <React.StrictMode>

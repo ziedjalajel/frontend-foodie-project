@@ -10,10 +10,13 @@ import Home from "./components/Home";
 import { useSelector } from "react-redux";
 import { GlobalStyle } from "./styles";
 import CategoryForm from "./components/CategoryForm";
+import RecipeList from "./components/recipes/RecipeList";
+import RecipeDetail from "./components/recipes/RecipeDetail";
 
 function App() {
   //ToDO:dont forget to use selector
   const ingredients = useSelector((state) => state.ingredients.ingredients);
+
   return (
     <div>
       <GlobalStyle />
@@ -36,6 +39,12 @@ function App() {
         </Route>
         <Route exact path="/ingredients">
           <IngredientList ingredients={ingredients} />
+        </Route>
+        <Route exact path="/recipes/:recipeSlug">
+          <RecipeDetail />
+        </Route>
+        <Route exact path="/recipes">
+          <RecipeList />
         </Route>
         <Route exact path="/">
           <Home />

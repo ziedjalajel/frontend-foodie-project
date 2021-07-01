@@ -102,3 +102,6 @@ export const ListWrapperCategory = styled.div`
     border-radius: 20px;
   }
 `;
+export const RecipeItemImage = styled.img`
+  width: 5em;
+`;
