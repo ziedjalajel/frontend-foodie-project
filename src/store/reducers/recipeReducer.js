@@ -2,7 +2,7 @@ import { ADD_RECIPE, FETCH_RECIPES } from "../actions/recipeActions";
 
 const initialState = {
   recipes: [],
-  // loading: true,
+  loading: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         recipes: action.payload,
-        // loading: false,
+        loading: false,
       };
     default:
       return state;

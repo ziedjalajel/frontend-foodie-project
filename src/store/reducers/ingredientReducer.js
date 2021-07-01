@@ -5,7 +5,7 @@ import {
 
 const initialState = {
   ingredients: [],
-  // loading: true,
+  loading: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         ingredients: action.payload,
-        // loading: false,
+        loading: false,
       };
     default:
       return state;

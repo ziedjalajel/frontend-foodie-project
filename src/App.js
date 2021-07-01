@@ -1,55 +1,28 @@
 import "./App.css";
 import { Route, Switch } from "react-router";
 import NavBar from "./components/NavBar";
-import CategoryDetail from "./components/categories/CategoryDetail";
-import IngredientForm from "./components/IngredientForm";
-import CategoryList from "./components/categories/CategoryList";
-import IngredientDetail from "./components/ingredients/IngredientDetail";
-import IngredientList from "./components/ingredients/IngredientList";
-import Home from "./components/Home";
 import { useSelector } from "react-redux";
 import { GlobalStyle } from "./styles";
-import CategoryForm from "./components/CategoryForm";
-import RecipeList from "./components/recipes/RecipeList";
-import RecipeDetail from "./components/recipes/RecipeDetail";
+import Routes from "./components/Routes";
+import BeatLoader from "react-spinners/BeatLoader";
 
 function App() {
   //ToDO:dont forget to use selector
   const ingredients = useSelector((state) => state.ingredients.ingredients);
   const recipes = useSelector((state) => state.recipes.recipes);
+
+  const loadingIngredients = useSelector((state) => state.ingredients.loading);
+  const loadingCategories = useSelector((state) => state.categories.loading);
+  const loadingRecipes = useSelector((state) => state.recipes.loading);
   return (
     <div>
       <GlobalStyle />
       <NavBar />
-      <Switch>
-        <Route exact path="/categories/:categorySlug/ingredients/new">
-          <IngredientForm />
-        </Route>
-        <Route exact path="/categories/new">
-          <CategoryForm />
-        </Route>
-        <Route exact path="/categories/:categorySlug">
-          <CategoryDetail />
-        </Route>
-        <Route exact path="/categories">
-          <CategoryList />
-        </Route>
-        <Route exact path="/ingredients/:ingredientSlug">
-          <IngredientDetail />
-        </Route>
-        <Route exact path="/ingredients">
-          <IngredientList ingredients={ingredients} />
-        </Route>
-        <Route exact path="/recipes/:recipeSlug">
-          <RecipeDetail />
-        </Route>
-        <Route exact path="/recipes">
-          <RecipeList recipes={recipes} />
-        </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-      </Switch>
+      {loadingIngredients || loadingCategories || loadingRecipes ? (
+        <BeatLoader size={20} />
+      ) : (
+        <Routes ingredients={ingredients} recipes={recipes} />
+      )}
     </div>
   );
 }

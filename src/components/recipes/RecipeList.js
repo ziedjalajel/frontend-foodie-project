@@ -6,8 +6,11 @@ import { ListWrapperCategory, Center } from "../../styles";
 
 const RecipeList = ({ recipes }) => {
   const [query, setQuery] = useState("");
+
   const recipeList = recipes
-    .filter((recipe) => recipe.name.toLowerCase().includes(query.toLowerCase()))
+    ?.filter((recipe) =>
+      recipe.name?.toLowerCase().includes(query.toLowerCase())
+    )
     .map((recipe) => <RecipeItem recipe={recipe} key={recipe.id} />);
   return (
     <div className="container">

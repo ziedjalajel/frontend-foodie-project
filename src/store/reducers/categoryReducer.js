@@ -2,7 +2,7 @@ import * as actionTypes from "../actions/types";
 
 const initialState = {
   categories: [],
-  // loading: true,
+  loading: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         categories: action.payload,
-        //   loading: false,
+        loading: false,
       };
     default:
       return state;

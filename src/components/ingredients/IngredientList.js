@@ -7,8 +7,8 @@ const IngredientList = ({ ingredients }) => {
   const [query, setQuery] = useState("");
 
   const ingredientList = ingredients
-    .filter((ingredient) =>
-      ingredient.name.toLowerCase().includes(query.toLowerCase())
+    ?.filter((ingredient) =>
+      ingredient.name?.toLowerCase().includes(query.toLowerCase())
     )
     .map((ingredient) => (
       <IngredientItem ingredient={ingredient} key={ingredient.id} />
